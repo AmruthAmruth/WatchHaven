@@ -69,4 +69,4 @@ export const adminLogin=async(req,res)=>{
         console.error("Error in userLogin:", error);
         return res.status(500).json({ message: "Server error" });
     }
-}
+} 

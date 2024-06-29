@@ -104,3 +104,32 @@ export const getAllUsers= async(req,res)=>{
     }
 }
 
+export const changeUserPassword = async (req, res) => {
+    const { email, oldPassword, newPassword } = req.body;
+    if (!email || !oldPassword || !newPassword) {
+        return res.status(400).json({ message: "Please fill in all fields" });
+    }
+    try {
+        const user = await User.findOne({ email });
+        if (!user) {
+            return res.status(404).json({ message: "User not found" });
+        }
+        const passwordMatch = await bcrypt.compare(oldPassword, user.password);
+        if (!passwordMatch) {
+            return res.status(401).json({ message: "Incorrect old password" });
+        } else {
+            const hashedPassword = await bcrypt.hash(newPassword, 10);
+            const updatePassword = await User.findOneAndUpdate(
+                { email }, 
+                { password: hashedPassword }
+            );
+            if (updatePassword) {
+                return res.status(200).json({ message: "Password changed successfully", user });
+            }
+        }
+    } catch (error) {
+        console.error("Error in changeUserPassword:", error);
+        return res.status(500).json({ message: "Server error" });
+    }
+};
+
