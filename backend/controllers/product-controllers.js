@@ -1,4 +1,5 @@
 import Product from "../models/Product.js";
+import User from "../models/User.js";
 
 
 export const addProduct = async (req, res) => {
@@ -133,3 +134,124 @@ export const deleteProductById = async (req, res) => {
 };
 
 
+export const addToCart = async (req, res) => {
+    const { userId, productId, quantity = 1 } = req.body; // Default quantity to 1 if not provided
+
+    try {
+        const user = await User.findById(userId);
+        if (!user) {
+            return res.status(401).json({ message: "Please Login Your Account." });
+        } 
+
+        const existingProduct = user.cart.find(item => item.product === productId);
+        if (existingProduct) {
+            existingProduct.quantity += quantity; 
+            return res.json({message:"Product Quantity Updated"})
+        } else {
+            user.cart.push({ product: productId, quantity: quantity });
+        }
+
+        await user.save();
+        return res.json({ message: "Product added to cart successfully." });
+    } catch (error) {
+        console.error("Error in addToCart:", error);
+        return res.status(500).json({ message: "Server error" });
+    }
+}
+
+export const removeFromCart = async (req, res) => {
+    const { userId, productId } = req.body;
+
+    try {
+        const user = await User.findById(userId);
+        if (!user) {
+            return res.status(401).json({ message: "Please Login Your Account." });
+        }
+
+        // Log the current cart to check its structure
+        console.log("User cart before:", user.cart);
+
+        // Find the index of the product in the cart
+        const productIndex = user.cart.findIndex(item => item.product && item.product.toString() === productId);
+
+        if (productIndex > -1) {
+            // Remove the product from the cart
+            user.cart.splice(productIndex, 1);
+            await user.save();
+            return res.json({ message: "Product removed from cart successfully." });
+        } else {
+            return res.status(404).json({ message: "Product not found in cart." });
+        }
+    } catch (error) {
+        console.error("Error in removeFromCart:", error);
+        return res.status(500).json({ message: "Server error" });
+    }
+};
+
+
+export const increaseQuantity = async (req, res) => {
+    const { userId, productId, incrementBy = 1 } = req.body;
+
+    try {
+        const user = await User.findById(userId);
+        if (!user) {
+            return res.status(401).json({ message: "Please Login Your Account." });
+        }
+
+        // Log the current cart to check its structure
+        console.log("User cart before:", user.cart);
+
+        // Find the product in the cart
+        const existingProduct = user.cart.find(item => item.product && item.product.toString() === productId);
+
+        if (existingProduct) {
+            // Increase the quantity
+            existingProduct.quantity += incrementBy;
+
+            await user.save();
+            return res.json({ message: "Product quantity increased successfully." });
+        } else {
+            return res.status(404).json({ message: "Product not found in cart." });
+        }
+    } catch (error) {
+        console.error("Error in increaseQuantity:", error);
+        return res.status(500).json({ message: "Server error" });
+    }
+};
+
+
+
+export const decreaseQuantity = async (req, res) => {
+    const { userId, productId, decrementBy = 1 } = req.body;
+
+    try {
+        const user = await User.findById(userId);
+        if (!user) {
+            return res.status(401).json({ message: "Please Login Your Account." });
+        }
+
+        // Log the current cart to check its structure
+        console.log("User cart before:", user.cart);
+
+        // Find the product in the cart
+        const existingProduct = user.cart.find(item => item.product && item.product.toString() === productId);
+
+        if (existingProduct) {
+            // Decrease the quantity
+            existingProduct.quantity -= decrementBy;
+
+            // If quantity is 0 or less, remove the product from the cart
+            if (existingProduct.quantity <= 0) {
+                user.cart = user.cart.filter(item => item.product.toString() !== productId);
+            }
+
+            await user.save();
+            return res.json({ message: "Product quantity decreased successfully." });
+        } else {
+            return res.status(404).json({ message: "Product not found in cart." });
+        }
+    } catch (error) {
+        console.error("Error in decreaseQuantity:", error);
+        return res.status(500).json({ message: "Server error" });
+    }
+};

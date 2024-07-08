@@ -14,7 +14,23 @@ const userSchema = new Schema({
   password: {
     type: String,
     required: true
+  },
+  cart: [
+    {
+        product: { type: mongoose.Schema.Types.ObjectId, ref: 'Product' },
+        quantity: { type: Number, default: 1 }
+    },
+],
+orders: [
+  {
+    product:{
+      type:String,
+    },
+    orderId:{
+      type:String
+    }
   }
+]
 });
 
 export default mongoose.model("User",userSchema) 
