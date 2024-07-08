@@ -36,3 +36,19 @@ export const createOrder = async (req, res) => {
     }
 };
 
+
+export const getAllOrders = async (req, res) => {
+    try {
+       
+        const orders = await Order.find();
+
+        if (orders) {
+            return res.status(200).json({ orders });
+        } else {
+            return res.status(500).json({ message: "Unexpected Error" });
+        }
+    } catch (error) {
+        console.error("Error in getAllOrders:", error);
+        return res.status(500).json({ message: "Server error" });
+    }
+};
