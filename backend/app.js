@@ -6,6 +6,7 @@ import adminRouter from './routes/admin-routes.js';
 import productRouter from './routes/product-routes.js';
 import reviewRoutes from './routes/review-routes.js';
 import orderRouter from './routes/order-routes.js';
+import chatRouter from './routes/chat-routes.js';
 dotenv.config()
 const app = express();
 const PORT = process.env.PORT || 5000
@@ -16,7 +17,7 @@ app.use('/admin',adminRouter)
 app.use('/product',productRouter)
 app.use('/review',reviewRoutes)
 app.use('/order',orderRouter)
-
+app.use('/chat',chatRouter)
 
 mongoose.connect(`mongodb+srv://amruthshyju:${process.env.MONGODB_PASSWORD}@cluster0.i8yx2tw.mongodb.net/?retryWrites=true&w=majority&appName=WatchHaven`)
   .then(()=>{
