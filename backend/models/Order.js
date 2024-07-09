@@ -7,7 +7,7 @@ const orderSchema = new Schema({
         require:true
     },
     productId: {
-        type: String,
+        type: [String],
         required: true
       },
   address: {
