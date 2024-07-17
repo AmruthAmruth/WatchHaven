@@ -1,5 +1,6 @@
 import express from 'express'
 import dotenv from 'dotenv'
+import cors from 'cors'
 import mongoose from 'mongoose';
 import userRouted from './routes/user-routes.js';
 import adminRouter from './routes/admin-routes.js';
@@ -9,8 +10,10 @@ import orderRouter from './routes/order-routes.js';
 import chatRouter from './routes/chat-routes.js';
 dotenv.config()
 const app = express();
+
 const PORT = process.env.PORT || 5000
 app.use(express.json());
+app.use(cors())
 
 app.use('/user',userRouted)
 app.use('/admin',adminRouter) 
