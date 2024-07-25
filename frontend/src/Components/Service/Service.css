@@ -1,0 +1,35 @@
+.service-main{
+    margin-bottom: 5rem;
+}
+.service-body{
+    width: 90%;
+    margin: auto;
+    align-items: center;
+    justify-content: space-around;
+    display: flex;
+    gap: 20px;
+    background-color: rgb(237, 236, 236);
+    padding: 40px;
+    text-align: center;
+    border-radius: 10px;
+  
+}
+.service h3{
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.icon{
+    font-size: 30px;
+}
+
+
+
+@media only screen and (max-width: 950px){
+.service-body{
+    flex-wrap: wrap;
+}
+.service{
+    margin-top: 10px;
+}
+}

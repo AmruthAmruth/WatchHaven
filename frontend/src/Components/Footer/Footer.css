@@ -1,0 +1,80 @@
+.footer-main {
+    color: white;
+    background-color: black;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+.footer {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    align-items: flex-start;
+    flex-wrap: wrap; /* Allows wrapping of items on smaller screens */
+}
+
+.footer-left, .footer-mid, .footer-right {
+    margin-bottom: 2rem; /* Space between sections */
+}
+
+.footer-left {
+    line-height: 2rem;
+    flex: 1 1 100%; /* Full width on smaller screens */
+    text-align: center;
+}
+
+.footer-socialmedia {
+    font-size: 20px;
+    margin-top: 20px;
+    
+}
+.footer-left p a{
+    text-decoration: none;
+    color: gold;
+    cursor: pointer;
+}
+.footer-mid {
+    width: 100%;
+    flex: 1 1 100%; /* Full width on smaller screens */
+    text-align: center;
+}
+
+.footer-right {
+    display: flex;
+    gap: 30px;
+    text-align: center;
+    flex: 1 1 100%; /* Full width on smaller screens */
+    justify-content: center; /* Center items on smaller screens */
+}
+
+.footer-right a {
+    text-decoration: none;
+    color: white;
+    line-height: 3rem;
+}
+
+.footer-right a:hover{
+color: gold;
+}
+/* Responsive adjustments */
+@media (min-width: 768px) {
+    .footer-left, .footer-mid, .footer-right {
+        flex: 1; /* Equal width for all sections on medium screens */
+        text-align: left;
+    }
+
+    .footer-mid {
+        width: 40%;
+    }
+}
+
+@media (min-width: 1024px) {
+    .footer-left, .footer-right {
+        flex: 1;
+    }
+
+    .footer-mid {
+        width: 40%;
+    }
+}

@@ -1,0 +1,76 @@
+.review-main {
+    width: 100%;
+    background-color: black;
+    color: white;
+    padding: 20px 0;
+    margin-bottom: 5rem;
+}
+.review-main h1{
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    font-size: 30px;
+    padding: 5px;
+}
+.review-body {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.review-box {
+    display: flex;
+    overflow-x: auto; /* Enables horizontal scrolling */
+    gap: 30px; /* Space between review items */
+    padding: 10px;
+    scroll-snap-type: x mandatory; /* Enables scroll snapping */
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+.review-box::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+}
+
+.review {
+    flex: 0 0 auto; /* Prevents shrinking and sets width for children */
+    width: 300px;
+    background-color: white;
+    color: black;
+    padding: 20px;
+    scroll-snap-align: start; /* Snap alignment */
+    border-radius: 10px; /* Optional: adds rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: adds shadow */
+    margin-bottom: 20px; /* Space at the bottom */
+}
+
+/* Responsive adjustments */
+@media (min-width: 600px) {
+    .review {
+        width: 350px;
+    }
+  
+}
+
+@media (min-width: 768px) {
+    .review {
+        width: 400px;
+        
+    }
+    
+}
+
+@media (min-width: 1024px) {
+    .review-body {
+        width: 80%;
+    }
+    
+}
+
+@media (min-width: 1200px) {
+    .review-body {
+        width: 90%;
+    }
+}

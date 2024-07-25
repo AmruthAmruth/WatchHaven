@@ -1,0 +1,99 @@
+.spec-body {
+    width: 90%;
+    margin: auto;
+    align-items: center;
+    margin-bottom: 5rem;
+}
+
+.spec {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+}
+
+.spec-img {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.spec-img img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+   
+}
+.spec:first-child .spec-img img {
+    border-top-left-radius: 10px; /* Adjust the radius value as needed */
+   
+}
+.spec:last-child .spec-img img {
+    border-bottom-right-radius: 10px; /* Adjust the radius value as needed */
+   
+}
+.spec:first-child .spec-text {
+    border-top-right-radius: 10px; /* Adjust the radius value as needed */
+    
+}
+.spec:last-child .spec-text {
+    border-bottom-left-radius: 10px; /* Adjust the radius value as needed */
+    
+}
+.spec-text {
+    width: 50%;
+    padding: 10px;
+    background-color: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.spec-text h2 {
+    margin-bottom: 2rem;
+    font-size: 30px;
+}
+
+/* Media query for smaller screens */
+@media only screen and (max-width: 750px) {
+    .spec {
+        flex-direction: column; /* Stack items vertically */
+    }
+
+    .spec-img,
+    .spec-text {
+        width: 100%; /* Full width for each item */
+        
+    }
+.spec-text{
+    height: 300px;
+}
+    .spec:nth-child(even) .spec-img {
+        order: -1; /* Move the image to the top for even .spec elements */
+    }
+    .spec:first-child .spec-img img {
+        border-top-left-radius: 10px; /* Adjust the radius value as needed */
+        border-top-right-radius: 10px; /* Adjust the radius value as needed */
+    }
+    .spec:last-child .spec-text {
+        border-bottom-left-radius: 10px; /* Adjust the radius value as needed */
+        border-bottom-right-radius: 10px; /* Adjust the radius value as needed */
+    }
+
+    .spec-text h2 {
+        font-size: 24px; /* Adjust font size */
+    }
+}
+
+/* Media query for even smaller screens */
+@media only screen and (max-width: 500px) {
+    .spec-text h2 {
+        font-size: 20px; /* Further adjust font size */
+    }
+
+    .spec-text {
+        padding: 5px; /* Adjust padding */
+    }
+}
