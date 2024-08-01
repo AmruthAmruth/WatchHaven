@@ -1,15 +1,21 @@
 import React from 'react'
-import "./Product.css"
-const Product = () => {
+import './Product.css'
+import Navbar from '../Navbar/Navbar'
+import Service from '../Service/Service'
+import Footer from '../Footer/Footer'
+const Products = () => {
   return (
-    <div className='pro-main'>
-        <div className="pro-text">
-        <h2>Explore Our Collection</h2>
-        <p>Discover our best-selling watches curated by thousands of enthusiasts like you. Join the club of those who <br /> appreciate style and performance.</p>
-        <button>Shop Now <i class="fa-solid fa-arrow-right"></i> </button>
-        </div>
+   <div>
+    <Navbar/>
+    <div className="products-body">
+      <div className="products-text">
+
+      <h2>DISCOVER THE WATCH HEVEN UNIVERSE</h2>
+      <p>WATCH HAVEN combines the beauty of contemporary design with the savoir faire and tradition of Swiss watchmaking, bringing you a star-studded universe of iconic timepieces, precision-engineered to suit the lifestyle and aspirations of the modern-day wearer.</p>
+    
+      </div>
        
-          <div className="products">
+      <div className="products">
             <div className="product">
              
               <div className="box">
@@ -73,11 +79,18 @@ const Product = () => {
 
 
             </div>
+
+
           </div>
+        
+
+    <Service/>
+<Footer/>
 
 
     </div>
+   </div>
   )
 }
 
-export default Product
+export default Products 

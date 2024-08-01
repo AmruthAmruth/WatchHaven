@@ -1,22 +1,14 @@
 import React from 'react'
-import Home from './Components/Home/Home'
-import Product from './Components/Product/Product'
-import Specs from './Components/Specs/Specs'
-import Service from './Components/Service/Service'
-import Review from './Components/Review/Review'
-import Footer from './Components/Footer/Footer'
-
+import MainPage from './Pages/MainPage'
+import { Routes,Route } from 'react-router-dom'
+import Products from './Components/AllProducts/Products'
 const App = () => {
   return (
-    <div>
-    
-    <Home/>
-    <Product/>
-    <Specs/>
-    <Service/>
-    <Review/>
-    <Footer/>
-    </div>
+   <Routes>
+ 
+    <Route path='/' element={<MainPage/>} />
+    <Route path='/shop' element={<Products/>} />
+   </Routes>
   )
 }
 
