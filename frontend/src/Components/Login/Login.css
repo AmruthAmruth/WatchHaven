@@ -1,0 +1,89 @@
+
+.login-main{
+    margin: auto;
+    align-items: center;
+    width: 100%;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    display: flex;
+}
+.login-section{
+    padding: 2rem;
+    background-color: rgb(228, 227, 227);
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    text-align: center;
+    border-radius: 20px;
+}
+
+.login-section input{
+    padding: 5px;
+    width: 400px;
+    margin-bottom: 2rem;
+    border-radius: 3px;
+    border: none;
+}
+.login-section button{
+    padding: 5px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.login-section button:hover{
+    background-color: black;
+    color: white;
+
+}
+.login-section form h2{
+    margin-bottom: 2rem;
+}
+
+.login-section form p{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+.login-section form p a{
+    color: goldenrod;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+@media (max-width: 600px){
+    .login-main{
+        
+        width: 100%;
+
+        margin-top: 4rem;
+        margin-bottom: 5rem;
+       
+    }
+    .login-section{
+        padding: 3rem 1rem;
+        width: 90%;
+        background-color: rgb(228, 227, 227);
+        margin: auto;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        text-align: center;
+        border-radius: 20px;
+    }
+    
+    .login-section input{
+        padding: 5px;
+        width: 250px;
+        margin-bottom: 2rem;
+        border-radius: 3px;
+        border: none;
+    }
+    .login-section button{
+        padding: 5px 30px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .login-section button:hover{
+        background-color: black;
+        color: white;
+    }
+}

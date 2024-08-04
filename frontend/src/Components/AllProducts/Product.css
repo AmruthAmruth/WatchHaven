@@ -1,5 +1,15 @@
 .products-text{
   text-align: center;
-  margin-top: 2rem;
-  margin-bottom: 2rem;  
+   
+  width: 90%;
+  margin: auto;
+  align-items: center;
+}
+
+.products-text h2{
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.products-text p{
+  margin-bottom: 2rem;
 }

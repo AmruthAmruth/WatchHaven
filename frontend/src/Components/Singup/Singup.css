@@ -1,0 +1,89 @@
+
+.signup-main{
+    margin: auto;
+    align-items: center;
+    width: 100%;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    display: flex;
+}
+.signup-section{
+    padding: 2rem;
+    background-color: rgb(228, 227, 227);
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    text-align: center;
+    border-radius: 20px;
+}
+
+.signup-section input{
+    padding: 5px;
+    width: 400px;
+    margin-bottom: 2rem;
+    border-radius: 3px;
+    border: none;
+}
+.signup-section button{
+    padding: 5px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.signup-section button:hover{
+    background-color: black;
+    color: white;
+
+}
+.signup-section form h2{
+    margin-bottom: 2rem;
+}
+
+.signup-section form p{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+.signup-section form p a{
+    color: goldenrod;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+@media (max-width: 600px){
+    .signup-main{
+        
+        width: 100%;
+
+        margin-top: 4rem;
+        margin-bottom: 5rem;
+       
+    }
+    .signup-section{
+        padding: 3rem 1rem;
+        width: 90%;
+        background-color: rgb(228, 227, 227);
+        margin: auto;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        text-align: center;
+        border-radius: 20px;
+    }
+    
+    .signup-section input{
+        padding: 5px;
+        width: 250px;
+        margin-bottom: 2rem;
+        border-radius: 3px;
+        border: none;
+    }
+    .signup-section button{
+        padding: 5px 30px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .signup-section button:hover{
+        background-color: black;
+        color: white;
+    }
+}
